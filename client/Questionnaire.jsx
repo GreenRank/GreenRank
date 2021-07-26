@@ -1,9 +1,16 @@
 import React from "react";
 import { QuestionCard } from "./QuestionCard";
+import Carousel from "react-elastic-carousel"
+
+const breakPoints = [
+  { width: 1, itemsToShow: 1 },
+];
+
 
 export const Questionnaire = () => {
   return (
     <div>
+      <Carousel breakPoints={breakPoints} >
       <QuestionCard
         questionTitle={"Means of transport"}
         question={"Which statement is most accurate for you?"}
@@ -66,6 +73,7 @@ export const Questionnaire = () => {
           "Our home is heated using fossil fuels (petroleum, natural gas, etc.)."
         }
       />
+      </Carousel>
     </div>
   );
 };
