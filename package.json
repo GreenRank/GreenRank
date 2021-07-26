@@ -1,0 +1,59 @@
+{
+  "name": "photo_db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production nodemon server/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
+    "dev2": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot --inline --progress --content-base ./\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\""
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "build",
+      "client"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "author": "Raubern Totanes https://github.com/rauberntotanes <rstotanes@g.ucla.edu>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3",
+    "prop-types": "^15.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.6.3",
+    "react-router-dom": "^5.2.0",
+    "webpack": "^5.38.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^6.0.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.6",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.31.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "isomorphic-fetch": "^3.0.0",
+    "node-sass": "^6.0.0",
+    "nodemon": "^2.0.7",
+    "postcss-loader": "^5.3.0",
+    "sass-loader": "^12.0.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-hot-middleware": "^2.25.0"
+  }
+}
