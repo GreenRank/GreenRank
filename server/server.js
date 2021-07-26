@@ -1,45 +1,55 @@
 const path = require('path');
 const express = require('express');
+const app = express();
+const PORT = 3000;
+
 var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 
 
-const app = express();
-
-const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-
-
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 
-passport.use(new GoogleStrategy({
-  clientID:     '183570045165-gq0q3j0up3m6c26ahu8cfh56c20h3prc.apps.googleusercontent.com',
-  clientSecret: '8u5R2cOK_xvFmB5QYGvVxHQy',
-  callbackURL: "http://localhost:3000/auth/google/callback",
-  passReqToCallback   : true
-},
-function(request, accessToken, refreshToken, profile, done) {
-  // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-  //   return done(err, user);
-  // });
-  //TO DO: call to DB
-}
-));
 
-app.get('/auth/google',
+
+const login = require('./routes/login.js');
+
+
+
+
+app.use('/login', login);
+
+
+
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+
+
+passport.use(new GoogleStrategy({
+    clientID:     '183570045165-gq0q3j0up3m6c26ahu8cfh56c20h3prc.apps.googleusercontent.com',
+    clientSecret: '8u5R2cOK_xvFmB5QYGvVxHQy',
+    callbackURL: "http://localhost:3000/auth/google/callback",
+    passReqToCallback   : true
+  },
+  function(request, accessToken, refreshToken, profile, done) {
+    // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    //   return done(err, user);
+    // });
+    //TO DO: call to DB
+  }
+  ));
+
+router.get('/auth/google',
   passport.authenticate('google', { scope:
       [ 'email', 'profile' ] }
 ));
 
-app.get( '/auth/google/callback',
+router.get( '/auth/google/callback',
     passport.authenticate( 'google', {
         successRedirect: '/auth/google/success',
         failureRedirect: '/auth/google/failure'
 }));
-
 
 
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
