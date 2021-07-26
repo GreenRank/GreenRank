@@ -3,15 +3,64 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: #eaf3e2;
 }
 
 #app {
   width: 100%;
   height: 100vh;
-  background-color: black;
+  background-color: #eaf3e2;
   color: white;
   margin: 0;
   padding: 0;
+}
+
+#title {
+  color: #9ca74e;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 5rem;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+
+.container {
+  font-family: 'Architects Daughter', cursive;
+  color: #9ca74e;
+  display: flex;
+  flex-direction: column;
+  /* position: absolute;
+  left: 50%;
+  top: 60%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#questionTitle {
+  background-color: #868d4f;
+  color: #eaf2e3;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(138, 138, 138);
+}
+
+.buttons {
+  font-family: 'Architects Daughter', cursive;
+  background-color: #868d4f;
+  color: #eaf2e3;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(210, 210, 210);
+}
+
+.buttonSpacing {
+  padding: 10px
 }
 
 /*# sourceMappingURL=index.css.map */
