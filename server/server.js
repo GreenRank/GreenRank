@@ -1,35 +1,51 @@
 const path = require('path');
 const express = require('express');
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+
 
 const app = express();
 
-// const apiRouter = require('./routes/api');
-
 const PORT = 3000;
 
-/**
- * handle parsing request body
- */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/**
- * handle requests for static files
- */
+
+
 app.use(express.static(path.resolve(__dirname, '../client')));
 
-/**
- * define route handlers
- */
-// app.use('/api', apiRouter);
 
-// catch-all route handler for any requests to an unknown route
+passport.use(new GoogleStrategy({
+  clientID:     '183570045165-gq0q3j0up3m6c26ahu8cfh56c20h3prc.apps.googleusercontent.com',
+  clientSecret: '8u5R2cOK_xvFmB5QYGvVxHQy',
+  callbackURL: "http://localhost:3000/auth/google/callback",
+  passReqToCallback   : true
+},
+function(request, accessToken, refreshToken, profile, done) {
+  // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+  //   return done(err, user);
+  // });
+  //TO DO: call to DB
+}
+));
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope:
+      [ 'email', 'profile' ] }
+));
+
+app.get( '/auth/google/callback',
+    passport.authenticate( 'google', {
+        successRedirect: '/auth/google/success',
+        failureRedirect: '/auth/google/failure'
+}));
+
+
+
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
 
-/**
- * express error handler
- * @see https://expressjs.com/en/guide/error-handling.html#writing-error-handlers
- */
+
+
 
 app.use((err, req, res, next) => {
   const defaultErr = {
@@ -42,9 +58,9 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-/**
- * start server
- */
+
+
+
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}...`);
 });
