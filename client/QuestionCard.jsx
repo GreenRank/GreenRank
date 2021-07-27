@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 //
 
-const submitForm = () => {
-  const body = this.props.setAnswers;
+const [answers, setAnswers] = useState([
+  {
+    mobility_vehicles: "",
+    consumption_food: "",
+    consumption_shopping: "",
+    household_area: "",
+    household_building: "",
+    household_heating: "",
+  },
+]);
 
-  fetch("/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-};
+const QuestionCard = (props) => {
+  const submitForm = () => {
+    const body = this.props.setAnswers;
 
-export const QuestionCard = (props) => {
+    fetch("/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  };
+
   const answers = Object.keys(props.answers).map((rating, index) => {
     return (
       <div className="buttonSpacing" key={index}>
@@ -23,6 +34,7 @@ export const QuestionCard = (props) => {
           id="html"
           name="climateHabit"
           value={rating}
+          onChange={setAnswers}
         ></input>
         <label className="buttons">{props.answers[rating]}</label>
       </div>
@@ -41,6 +53,7 @@ export const QuestionCard = (props) => {
           type="submit"
           value="Submit"
           className="buttons" /*onClick={this.state.submitForm}*/
+          onSubmit={(setAnswers, submitForm)}
         >
           Submit
         </button>
