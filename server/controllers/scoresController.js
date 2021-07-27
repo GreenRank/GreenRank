@@ -52,7 +52,7 @@ class ScoresController {
         return next();
       })
       .catch((err) => {
-        return next({err});
+        return next(err);
       });
   };
 };

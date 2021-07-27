@@ -18,3 +18,5 @@ router.get(
   scoresController.getAllResultsByGoogleId,
   (req, res) => res.status(200).json({ scores: res.locals.scores })
 );
+
+module.exports = router;

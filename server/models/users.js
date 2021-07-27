@@ -25,9 +25,9 @@ class User {
   //   return pool.query(query, [params.name, params.username])
   // };
   
-  createUserWithGoogle(googleId) {
-    const query = `INSERT INTO users(googleId) VALUES ($1)`;
-    return pool.query(query, [googleId]);
+  createUserWithGoogle(name,username,googleId) {
+    const query = `INSERT INTO users(name,username,googleId) VALUES ($1,$2,$3)`;
+    return pool.query(query, [name,username,googleId]);
   };
   
   // getUserById(id) {
@@ -35,13 +35,13 @@ class User {
   //   return pool.query(query, [id]);
   // };
 
-  // getUserByGoogleId(id) {
-  //   const query = `SELECT * FROM users WHERE users.googleId = $1`
-  //   return pool.query(query, [id]);
-  // };
+  getUserByGoogleId(id) {
+    const query = `SELECT * FROM users WHERE googleId = $1`
+    return pool.query(query, [id]);
+  };
 
-  updateUserById(id, params) {}
-  updateUserByGoogleId(googleId, params) {}
+  // updateUserById(id, params) {}
+  // updateUserByGoogleId(googleId, params) {}
 }
 
 const UserModel = new User();

@@ -10,3 +10,7 @@ router.post(
   userController.createUserWithGoogleId,
   (req, res) => res.status(200).json({ googleId: res.locals.googleId })
 )
+
+
+
+module.exports = router;

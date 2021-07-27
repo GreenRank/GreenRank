@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { SignIn } from "./SignIn";
+import { Questionnaire } from "./Questionnaire";
 
 const App = () => {
   return (
     <div>
-      <h1>hellooooo</h1>
+      {/* <SignIn />,
+      <Questionnaire /> */}
+      <a href="/auth/google">login with google</a>
     </div>
-  )
+  );
 };
 
 export default App;
