@@ -9,7 +9,7 @@ class Scores {
       CREATE TABLE IF NOT EXISTS
       scores (
         id serial PRIMARY KEY,
-        user_id varchar NOT NULL,
+        googleId varchar NOT NULL,
         score varchar NOT NULL
         mobility_vehicles varchar NOT NULL
         consumption_food NOT NULL
@@ -23,16 +23,11 @@ class Scores {
 
   addResults(id, score) {
     const query = `
-      INSERT INTO scores(user_id, score, mobility_vehicles, consumption_food, consumption_shopping, household_area, household_building, household_heating)
+      INSERT INTO scores(googleId, score, mobility_vehicles, consumption_food, consumption_shopping, household_area, household_building, household_heating)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
     `;
     return pool.query(query, [id, score, mobility_vehicles, consumption_food, consumption_shopping, household_area, household_building, household_heating])
   };
-
-  // getResultsById(id) {
-  //   const query = `SELECT * FROM scores WHERE scores.user_id = $1`;
-  //   return pool.query(query, [id]);
-  // };
 
   getResultsByGoogleId(id) {
     const query = `SELECT * FROM scores WHERE scores.googleId = $1`;
