@@ -1,5 +1,5 @@
 {
-  "name": "photo_db",
+  "name": "green_rank",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,9 @@
     "start": "cross-env NODE_ENV=production nodemon server/server.js",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
-    "dev2": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot --inline --progress --content-base ./\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\""
+    "dev2": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot --inline --progress --content-base ./\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
+    "cy:electron": "cypress open",
+    "cy:terminal": "cypress run"
   },
   "nodemonConfig": {
     "ignore": [
@@ -21,10 +23,11 @@
       "react-app/jest"
     ]
   },
-  "author": "Raubern Totanes https://github.com/rauberntotanes <rstotanes@g.ucla.edu>",
+  "author": "Raubern Totanes https://github.com/GreenRank/GreenRank <rstotanes@g.ucla.edu>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.12.3",
+    "pg": "^8.6.0",
     "prop-types": "^15.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -40,6 +43,7 @@
     "concurrently": "^6.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
+    "cypress": "^8.0.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.31.0",
     "file-loader": "^6.2.0",

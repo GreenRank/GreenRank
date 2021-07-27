@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 
 // const apiRouter = require('./routes/api');
+const { createAllTables } = require('./models/index')
+const userRouter = require('./routes/userRouter');
+const scoreRouter = require('./routes/scoreRouter')
 
 const PORT = 3000;
 
@@ -22,6 +25,7 @@ app.use(express.static(path.resolve(__dirname, '../client')));
  * define route handlers
  */
 // app.use('/api', apiRouter);
+// app.use('/', userRouter);
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
@@ -45,8 +49,11 @@ app.use((err, req, res, next) => {
 /**
  * start server
  */
-app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}...`);
+createAllTables()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server listening on port: ${PORT}...`);
+    });
 });
 
 module.exports = app;
