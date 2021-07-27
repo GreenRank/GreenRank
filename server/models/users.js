@@ -5,35 +5,21 @@ const pool = require('./db');
 class User {
   
   createTable() {
-    console.log('inside of User class -- create table function')
     const query = `
       CREATE TABLE IF NOT EXISTS
       users (
         id SERIAL PRIMARY KEY,
         name VARCHAR NOT NULL,
-        username VARCHAR UNIQUE NOT NULL,
+        email VARCHAR UNIQUE NOT NULL
         googleId VARCHAR UNIQUE NOT NULL
       );`
     return pool.query(query);
   };
-
-  // createUser(params) {
-  //   const query = `
-  //   INSERT INTO users(name, username)
-  //   VALUES ($1, $2)
-  //   `;
-  //   return pool.query(query, [params.name, params.username])
-  // };
   
-  createUserWithGoogle(name,username,googleId) {
-    const query = `INSERT INTO users(name,username,googleId) VALUES ($1,$2,$3)`;
-    return pool.query(query, [name,username,googleId]);
+  createUserWithGoogle(name, username, googleId) {
+    const query = `INSERT INTO users(name, username, googleId) VALUES ($1, $2, $3)`;
+    return pool.query(query, [name, username, googleId]);
   };
-  
-  // getUserById(id) {
-  //   const query = `SELECT * FROM users WHERE users.id = $1`
-  //   return pool.query(query, [id]);
-  // };
 
   getUserByGoogleId(id) {
     const query = `SELECT * FROM users WHERE googleId = $1`
