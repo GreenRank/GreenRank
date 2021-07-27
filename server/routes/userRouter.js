@@ -1,6 +1,12 @@
-const { userController } = require('../controllers');
+const { userController } = require('../controllers/userController')
 const { Router } = require('express');
 
 const router = Router();
 
-// get user
+// route to store user in DB
+//! DO WE EVEN NEED A USERS TABLE???
+router.post(
+  'createUser',
+  userController.createUserWithGoogleId,
+  (req, res) => res.status(200).json({ googleId: res.locals.googleId })
+)

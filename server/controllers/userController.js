@@ -1,6 +1,19 @@
 const { UserModel } = require('../models');
 
 class UserController {
+
+  createUserWithGoogleId(req, res, next) {
+    const { googleId } = req.body;
+    UserModel.createUserWithGoogleId(googleId)
+      .then((data) => {
+        res.locals.googleId = googleId
+        return next();
+      })
+      .catch((err) => {
+        return next({err});
+      })
+  }
+
   getUserById(req, res, next) {
     UserModel.getUserById(req.params.id)
       .then((data) => {
@@ -20,7 +33,7 @@ class UserController {
   };
   
   getUserByGoogleId(req, res, next) {
-    UserModel.updateUserByGoogleId(res.locals.googleUser.id)    //! get this from auth controller
+    UserModel.getUserByGoogleId(res.locals.googleUser.id)    //! get this from auth controller
       .then((data) => {
         const user = data.rows[0];
         if (!user) {
@@ -40,7 +53,7 @@ class UserController {
   //update user
 }
 
-const UserController = new UserController();
+const userController = new UserController();
 
 module.exports = {
   userController
