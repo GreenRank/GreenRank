@@ -5,8 +5,8 @@ import { Questionnaire } from "./Questionnaire";
 const App = () => {
   return (
     <div>
-      <SignIn />,
-      <Questionnaire />
+      {/* <SignIn />,
+      <Questionnaire /> */}
       <a href="/auth/google">login with google</a>
     </div>
   );
