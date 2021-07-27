@@ -1,27 +1,26 @@
 const { ScoresModel } = require('../models');
 
 class ScoresController {
-  getAllScoresById(req, res, next) {
-    const { id } = req.body
-    ScoresModel.getScoresById(id)
+
+  addUserResults(req, res, next) {
+    const { id, score } = req.body;
+    ScoresModel.addResults(id, score)
       .then((data) => {
-        const scores = data.rows;
-        if(!scores.length) return res.locals.newUser = true;
-        res.locals.scores = scores;
+        res.locals.score = score;
         return next();
       })
       .catch((err) => {
-        return next({err});
-      })
+        return next(err);
+      });
   };
 
-  getAllScoresByGoogleId(req, res, next) {
+  getAllResultsByGoogleId(req, res, next) {
     const { googleId } = req.body;
-    ScoresModel.getScoresByGoogleId(googleId)
+    ScoresModel.getResultsByGoogleId(googleId)
       .then((data) => {
-        const scores = data.rows;
-        if(!scores.length) return res.locals.newUser = true;
-        res.locals.scores = scores;
+        const results = data.rows;
+        if(!results.length) return res.locals.newUser = true;
+        res.locals.results = results;
         return next();
       })
       .catch((err) => {
@@ -33,8 +32,9 @@ class ScoresController {
     ScoresModel.getAllScores()
       .then((data) => {
         const ranks = {};
+        console.log('THIS IS data.rows -> ', data.rows);
         data.rows.forEach(({user_id, score}) => {
-          ranks[user_id] = Math.max(ranks[user_id], score);
+          ranks[user_id] = Math.min(ranks[user_id], score);
         });
         res.locals.ranks = ranks;
       })
@@ -43,17 +43,6 @@ class ScoresController {
       })
   };
 
-  addUserScore(req, res, next) {
-    const { id, score } = req.body;
-    ScoresModel.addScore(id, score)
-      .then((data) => {
-        res.locals.score = score;
-        return next();
-      })
-      .catch((err) => {
-        return next({err});
-      });
-  };
 };
 
 const scoresController = new ScoresController();

@@ -9,12 +9,14 @@ const router = Router();
 router.get(
   '/ranks',
   scoresController.getRanks,
-  (req, res) => res.status(200).json({ ranks: res.locals.ranks })
+  (req, res) => res.status(200).json({ ranks: res.locals.ranks })     // ranks is an object; frontend will sort
 );
 
 // get all scores for a single user
 router.get(
-  '/getUserScores',
-  scoresController.getAllScoresByGoogleId,
-  (req, res) => res.status(200).json({ scores: res.locals.scores })
+  '/getUserResults',
+  scoresController.getAllResultsByGoogleId,
+  (req, res) => res.status(200).json({ results: res.locals.results })
 );
+
+module.exports = router;

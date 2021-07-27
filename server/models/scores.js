@@ -9,32 +9,34 @@ class Scores {
       CREATE TABLE IF NOT EXISTS
       scores (
         id serial PRIMARY KEY,
-        user_id varchar NOT NULL,
+        googleId varchar NOT NULL,
         score varchar NOT NULL
+        mobility_vehicles varchar NOT NULL
+        consumption_food NOT NULL
+        consumption_shopping varchar NOT NULL
+        household_area varchar NOT NULL
+        household_building varchar NOT NULL
+        household_heating varchar NOT NULL
       )`;
     return pool.query(query);
   };
 
-  addScore(id, score) {
+  addResults(id, score) {
     const query = `
-      INSERT INTO scores(user_id, score)
-      VALUES ($1, $2)
+      INSERT INTO scores(googleId, score, mobility_vehicles, consumption_food, consumption_shopping, household_area, household_building, household_heating)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
     `;
-    return pool.query(query, [id, score])
+    return pool.query(query, [id, score, mobility_vehicles, consumption_food, consumption_shopping, household_area, household_building, household_heating])
   };
 
-  getScoresById(id) {
-    const query = `SELECT * FROM scores WHERE scores.user_id = $1`;
-    return pool.query(query, [id]);
-  };
-
-  getScoresByGoogleId(id) {
+  getResultsByGoogleId(id) {
     const query = `SELECT * FROM scores WHERE scores.googleId = $1`;
     return pool.query(query, [id]);
   };
 
+  // gets the overal scores for rankings
   getAllScores() {
-    const query = `SELECT * FROM scores`;
+    const query = `SELECT user_id, score FROM scores`;
     return pool.query(query);
   }
 };
