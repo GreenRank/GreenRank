@@ -22,23 +22,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "../client")));
 
-// app.get(
-//   "/auth/google",
-//   passport.authenticate("google", { scope: ["email", "profile"] })
-// );
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
 
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google', { failureRedirect: '/error' }),
-//   function(req, res) {
-//     res.redirect('/success');
-//   });
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/error' }),
+  function(req, res) {
+    res.redirect('/success');
+  });
 
-// app.get("/success", (req, res) => {
-//   res.send("made it!");
-// });
-// app.get("/error", (req, res) => {
-//   res.send("failure");
-// });
+app.get("/success", (req, res) => {
+  res.send("made it!");
+});
+app.get("/error", (req, res) => {
+  res.send("failure");
+});
 
 /**
  * handle requests for static files

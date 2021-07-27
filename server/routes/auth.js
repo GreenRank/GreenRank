@@ -1,11 +1,13 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+require('dotenv').config();
+
+let GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+let GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+
 
 const { UserModel } = require("../models");
 
-const GOOGLE_CLIENT_ID =
-  "183570045165-gq0q3j0up3m6c26ahu8cfh56c20h3prc.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "8u5R2cOK_xvFmB5QYGvVxHQy";
 
 passport.use(
   new GoogleStrategy(
@@ -17,25 +19,23 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, done) {
       try {
-        console.log(profile.id)
-        let user = await UserModel.getUserByGoogleId(profile.id);
-        console.log('user',user)
-        if (!user) user = await UserModel.createUserWithGoogle(profile.id);
+        console.log(profile)
+        const name = profile.displayName.split(' ')[0];
+        const username = profile.emails[0].value;
+        const googleId = profile.id;
+        let user = await UserModel.getUserByGoogleId(googleId);
+        console.log('user',user.rows[0])
+        if (!user.rows[0]){
+          console.log('here')
+          user = await UserModel.createUserWithGoogle(name,username,googleId);
+        } 
         return done(null, user);
       } catch (err) {
-        
         return done(err);
       }
     }
-
-    // function(accessToken, refreshToken, profile, done) {
-    //     console.log(profile.id)
-    //      return done(null, profile);
-    //     //return done();
-    // }
   )
 );
-
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
