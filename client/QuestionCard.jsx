@@ -1,46 +1,50 @@
 import React from "react";
 
-// 
+//
 
 const submitForm = () => {
+  const body = this.props.setAnswers;
 
-  const body = this.props.setAnswers
-
-  fetch('/api', {
-    method: 'POST',
+  fetch("/api", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(body)
-  })
-  
-}
+    body: JSON.stringify(body),
+  });
+};
 
 export const QuestionCard = (props) => {
+  const answers = Object.keys(props.answers).map((rating, index) => {
+    return (
+      <div className="buttonSpacing" key={index}>
+        <input
+          type="radio"
+          id="html"
+          name="climateHabit"
+          value={rating}
+        ></input>
+        <label className="buttons">{props.answers[rating]}</label>
+      </div>
+    );
+  });
+
   return (
     <form className="container">
       <div id="questionTitle">
         <h2>{props.questionTitle}</h2>
         <p>{props.question}</p>
       </div>
-      <div>
-        <div className="buttonSpacing">
-          <input type="radio" id="html" name="climateHabit" value="low"></input>
-          <label className="buttons">{props.answer1}</label>
-        </div>
-        <div className="buttonSpacing">
-          <input type="radio" id="html" name="climateHabit" value="medium"></input>
-          <label className="buttons">{props.answer2}</label>
-        </div>
-        <div className="buttonSpacing">
-          <input type="radio" id="html" name="climateHabit" value="high"></input>
-          <label className="buttons">{props.answer3}</label>
-        </div>
-        <div className="buttonSpacing">
-          <input type="radio" id="html" name="climateHabit" value="giant"></input>
-          <label className="buttons">{props.answer4}</label>
-        </div>
-      </div>
+      {answers}
+      {props.id === 5 && (
+        <button
+          type="submit"
+          value="Submit"
+          className="buttons" /*onClick={this.state.submitForm}*/
+        >
+          Submit
+        </button>
+      )}
     </form>
   );
 };

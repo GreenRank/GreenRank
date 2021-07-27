@@ -64,6 +64,7 @@ body {
   display:inline-block;
   width: 80%;
   position:relative;
+  border-color: #485852
 }
 
 .buttonSpacing {
