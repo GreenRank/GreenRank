@@ -12,6 +12,7 @@ const questions = [
     }
   },
   {
+    category: "consumption_food",
     questionTitle: "Food",
     question: "Which statement is most accurate for you?",
     answers: {
@@ -22,6 +23,7 @@ const questions = [
     }
   },
   {
+    category: "consumption_shopping",
     question: "Shopping, leisure, culture",
     question: "Which statement is most accurate for you?",
     answers: {
@@ -32,6 +34,7 @@ const questions = [
     }
   },
   {
+    category: "household_area",
     questionTitle: "Living space",
     question: "Which statement is most accurate for you?",
     answers: {
@@ -40,6 +43,7 @@ const questions = [
     }
   },
   {
+    category: "household_building",
     questionTitle: "Construction standard",
     question: "Which statement is most accurate for you?",
     answers: {
@@ -48,6 +52,7 @@ const questions = [
     }
   },
   {
+    category: "household_heating",
     questionTitle: "Heating system",
     question: "Which statement is most accurate for you?",
     answers: {
