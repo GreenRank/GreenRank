@@ -10,6 +10,7 @@ const createAllTables = () => {
       return ScoresModel.createTable();
     })
     .catch((err) => {
+      console.log(err)
       console.log('error in creating initial tables')
     });
 };
