@@ -1,23 +1,24 @@
 const { ScoresModel } = require('../models');
 
 class ScoresController {
-  getAllScoresById(req, res, next) {
-    const { id } = req.body
-    ScoresModel.getScoresById(id)
-      .then((data) => {
-        const scores = data.rows;
-        if(!scores.length) return res.locals.newUser = true;
-        res.locals.scores = scores;
-        return next();
-      })
-      .catch((err) => {
-        return next({err});
-      })
-  };
+  // if using regular authentication
+  // getAllResultsById(req, res, next) {
+  //   const { id } = req.body
+  //   ScoresModel.getResultsById(id)
+  //     .then((data) => {
+  //       const scores = data.rows;
+  //       if(!scores.length) return res.locals.newUser = true;
+  //       res.locals.scores = scores;
+  //       return next();
+  //     })
+  //     .catch((err) => {
+  //       return next({err});
+  //     })
+  // };
 
-  getAllScoresByGoogleId(req, res, next) {
+  getAllResultsByGoogleId(req, res, next) {
     const { googleId } = req.body;
-    ScoresModel.getScoresByGoogleId(googleId)
+    ScoresModel.getResultsByGoogleId(googleId)
       .then((data) => {
         const scores = data.rows;
         if(!scores.length) return res.locals.newUser = true;
@@ -43,9 +44,9 @@ class ScoresController {
       })
   };
 
-  addUserScore(req, res, next) {
+  addUserResults(req, res, next) {
     const { id, score } = req.body;
-    ScoresModel.addScore(id, score)
+    ScoresModel.addResults(id, score)
       .then((data) => {
         res.locals.score = score;
         return next();
