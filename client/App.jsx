@@ -7,6 +7,7 @@ const App = () => {
     <div>
       <SignIn />,
       <Questionnaire />
+      <a href="/auth/google">login with google</a>
     </div>
   );
 };
