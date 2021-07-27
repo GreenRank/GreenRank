@@ -21,7 +21,7 @@ passport.use(
     //^^ this will be where we check if the user exists already in the DB
 
     function (accessToken, refreshToken, profile, done) {
-      console.log(profile)
+      console.log(profile);
       return done(err, profile);
     }
   )

@@ -10,9 +10,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "../client")));
 
-
-
-
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
@@ -20,11 +17,18 @@ app.get(
 
 app.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
-  function (req, res) {
-    res.redirect("/");
-  }
+  passport.authenticate("google", {
+    successRedirect: "/madeit",
+    failureRedirect: "/failure",
+  })
 );
+
+app.get("/madeit", (req, res) => {
+  res.send("made it!");
+});
+app.get("failure", (req, res) => {
+  res.send("failure");
+});
 
 app.use((req, res) =>
   res.status(404).send("This is not the page you're looking for...")
