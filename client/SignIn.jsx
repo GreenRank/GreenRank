@@ -16,7 +16,9 @@ export const SignIn = () => {
 
   return (
     <div>
-      <h1 id="title">Green Rank</h1>
+      <h1 id="title">Green Score</h1>
+      
+
       <Switch>
         <Route path="/Questionnaire" component={Questionnaire} />
       </Switch>
