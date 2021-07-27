@@ -30,18 +30,18 @@ class User {
     return pool.query(query, [name,username,googleId]);
   };
   
-  getUserById(id) {
-    const query = `SELECT * FROM users WHERE users.id = $1`
-    return pool.query(query, [id]);
-  };
+  // getUserById(id) {
+  //   const query = `SELECT * FROM users WHERE users.id = $1`
+  //   return pool.query(query, [id]);
+  // };
 
   getUserByGoogleId(id) {
     const query = `SELECT * FROM users WHERE googleId = $1`
     return pool.query(query, [id]);
   };
 
-  updateUserById(id, params) {}
-  updateUserByGoogleId(googleId, params) {}
+  // updateUserById(id, params) {}
+  // updateUserByGoogleId(googleId, params) {}
 }
 
 const UserModel = new User();
