@@ -1,19 +1,6 @@
 import React, { useState } from "react";
 
-//
-
-const [answers, setAnswers] = useState([
-  {
-    mobility_vehicles: "",
-    consumption_food: "",
-    consumption_shopping: "",
-    household_area: "",
-    household_building: "",
-    household_heating: "",
-  },
-]);
-
-const QuestionCard = (props) => {
+export const QuestionCard = (props) => {
   const submitForm = () => {
     const body = this.props.setAnswers;
 
@@ -26,7 +13,11 @@ const QuestionCard = (props) => {
     });
   };
 
+  const updateState = (event) => {};
+
   const answers = Object.keys(props.answers).map((rating, index) => {
+    const category = props.category;
+
     return (
       <div className="buttonSpacing" key={index}>
         <input
@@ -34,7 +25,9 @@ const QuestionCard = (props) => {
           id="html"
           name="climateHabit"
           value={rating}
-          onChange={setAnswers}
+          answer={props.answers[rating]}
+          // onChange={props.setAnswers({ category: event.target.answer })}
+          onChange={updateState}
         ></input>
         <label className="buttons">{props.answers[rating]}</label>
       </div>
@@ -53,7 +46,13 @@ const QuestionCard = (props) => {
           type="submit"
           value="Submit"
           className="buttons" /*onClick={this.state.submitForm}*/
-          onSubmit={(setAnswers, submitForm)}
+          onClick={() =>
+            console.log(
+              "clicked; here is answers state obj: ",
+              props.answersState
+            )
+          }
+          // onSubmit={(submitForm)}
         >
           Submit
         </button>

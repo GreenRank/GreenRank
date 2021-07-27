@@ -1,6 +1,7 @@
 
 const questions = [
   {
+    category: "mobility_vehicle",
     questionTitle: "Means of transport",
     question: "Which statement is most accurate for you?",
     answers: {
