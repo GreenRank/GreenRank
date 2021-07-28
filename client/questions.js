@@ -1,7 +1,7 @@
 
 const questions = [
   {
-    category: "mobility_vehicle",
+    category: "mobility_vehicles",
     questionTitle: "Means of transport",
     question: "Which statement is most accurate for you?",
     answers: {
@@ -27,10 +27,10 @@ const questions = [
     question: "Shopping, leisure, culture",
     question: "Which statement is most accurate for you?",
     answers: {
-      low: "I purchase new clothing, devices and furniture very rarely (these expenses are 60 euros a month). Expenses for leisure time, culture and health are below average.",
-      medium: "I purchase half of my clothing, devices and furniture second-hand (these expenses are 170 euros a month). Expenses for leisure time, culture and health are slightly below average.",
-      high: "I occasionally purchase new clothing, devices and furniture (these expenses are 210 euros a month). Expenses for leisure time, culture and health are average (360 euros a month).",
-      giant: "I frequently purchase new clothing, devices and furniture (these expenses are 420 euros a month). Expenses for leisure time, culture and health are slightly above average."
+      low: "I purchase new clothing, devices and furniture very rarely (these expenses are 70 dollars a month). Expenses for leisure time, culture and health are below average.",
+      medium: "I purchase half of my clothing, devices and furniture second-hand (these expenses are 200 dollars a month). Expenses for leisure time, culture and health are slightly below average.",
+      high: "I occasionally purchase new clothing, devices and furniture (these expenses are 250 dollars a month). Expenses for leisure time, culture and health are average (360 euros a month).",
+      giant: "I frequently purchase new clothing, devices and furniture (these expenses are 500 dollars a month). Expenses for leisure time, culture and health are slightly above average."
     }
   },
   {

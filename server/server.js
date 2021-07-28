@@ -11,6 +11,10 @@ const logout = require('./routes/logout.js')
 const PORT = 3000;
 
 const passport = require("passport");
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -18,16 +22,12 @@ app.use(passport.session());
 app.set('view engine', 'ejs');
 
 
-
-
 app.use('/auth/google', authRouter);
 // app.use('/user',userRouter);
-app.use('/scores',scoreRouter);
+app.use('/postQuestionnaire',scoreRouter);
 app.use('/logout',logout);
 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.resolve(__dirname, "../client")));
 
 app.get('/', (req,res)=>{

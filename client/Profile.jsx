@@ -60,13 +60,19 @@ const data02 = [
   },
 ];
 
+/* onPieEnter(data, index) {
+  this.setState({
+    activeIndex: index,
+  });
+} */
+
 export const Profile = () => {
   return (
     <div>
       <header>
         <h1 id="tableTitle">Your Footprint</h1>
       </header>
-      <PieChart id="pieChart" width={730} height={250}>
+      <PieChart id="tableTitle" id="pieChart" width={730} height={250}>
         <Pie
           data={data01}
           dataKey="value"
@@ -75,6 +81,7 @@ export const Profile = () => {
           cy="50%"
           outerRadius={50}
           fill="#8884d8"
+          // onMouseEnter={this.onPieEnter}
         />
         <Pie
           data={data02}

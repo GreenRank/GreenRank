@@ -1,17 +1,23 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import questions from "./questions.js";
 
 export const QuestionCard = (props) => {
-  const submitForm = () => {
-    const body = this.props.setAnswers;
+  const history = useHistory();
 
-    fetch("/api", {
+  const submitForm = () => {
+    const body = props.answersState;
+
+    console.log("line 7 body", body);
+    fetch("/postQuestionnaire", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     });
+
+    history.push("/Home");
   };
 
   // const updateState = (event) => {};
@@ -37,7 +43,6 @@ export const QuestionCard = (props) => {
                 ...props.answersState,
                 [props.category]: rating,
               });
-              console.log("current state: ", props.answersState);
             }}
             // onChange={updateState}
           ></input>
@@ -57,13 +62,8 @@ export const QuestionCard = (props) => {
       {props.id === 5 && (
         <button
           // value="Submit"
-          className="buttons" /*onClick={this.state.submitForm}*/
-          onClick={() =>
-            console.log(
-              "clicked; here is answers state obj: ",
-              props.answersState
-            )(submitForm)
-          }
+          className="submitButton" /*onClick={this.state.submitForm}*/
+          onClick={submitForm}
           // onSubmit={(submitForm)}
         >
           Submit

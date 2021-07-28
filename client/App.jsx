@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SignIn } from "./SignIn";
-import { Questionnaire } from "./Questionnaire";
+import { Questionnaire } from "./Questionnaire.jsx";
+import { About } from "./About.jsx";
 import { Home } from "./Home.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router";
@@ -21,7 +22,8 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={SignIn} />
           <Route path="/Home" component={Home} />
-          <Route path="/Questionnare" component={Questionnaire} />
+          <Route path="/Questionnaire" component={Questionnaire} />
+          <Route path="/About" component={About} />
         </Switch>
       </Router>
     </div>
