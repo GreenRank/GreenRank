@@ -29,10 +29,18 @@ class Scores {
     return pool.query(query, [id, score, mobility_vehicles, consumption_food, consumption_shopping, household_area, household_building, household_heating])
   };
 
-  getResultsByGoogleId(id) {
-    const query = `SELECT * FROM scores WHERE scores.googleId = $1`;
+  getResultsById(id) {
+    console.log('getresultsbyid function')
+    const query = `SELECT * FROM scores WHERE scores.id = $1`;
     // SELECT * FROM scores s INNER JOIN users ON users.googleId = s.googleId WHERE users.googleId=110466235164956177628 THIS WONT WORK
     return pool.query(query, [id]);
+  };
+
+  getResultsByGoogleId(googleId) {
+    console.log('getresultsbygoogleid function')
+    const query = `SELECT * FROM scores WHERE scores.googleId = $1`;
+    // SELECT * FROM scores s INNER JOIN users ON users.googleId = s.googleId WHERE users.googleId=110466235164956177628 THIS WONT WORK
+    return pool.query(query, [googleId]);
   };
 
   // gets the overal scores for rankings

@@ -5,16 +5,21 @@ import { PieChart } from 'recharts'
 
 const getUserData = (id) => {}
 
-export const Profile = () => {
+export const Profile = ({ id, googleId }) => {
 
-  // fetch('getUserResults')
-  //   .then(res => res.json())
-  //   .then(data => console.log(data)) //set userProfile state)
+  console.log('inside profile')
+
+  fetch(`/scores/getUserResults/:id`)
+  // fetch(`/scores/getUserResults/:${googleId}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
 
 
   return (
     <div>
-      
+      merp
     </div>
   )
 

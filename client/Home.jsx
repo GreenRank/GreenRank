@@ -18,6 +18,8 @@ export const Home = () => {
           // getAllUserData={getAllUserData} 
           />
         <Profile 
+          id={3}
+          googleId={110466235164956177628}
           // getAllUserData={getAllUserData} 
           />
       </div>

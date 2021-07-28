@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import questions from "./questions.js";
 
 export const QuestionCard = (props) => {
+  
   const submitForm = () => {
     const body = this.props.setAnswers;
 
