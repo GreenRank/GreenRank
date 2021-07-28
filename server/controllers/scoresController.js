@@ -23,10 +23,8 @@ class ScoresController {
       // }
       }
     const curUserGoogleId = req.cookies.greenRankCurrentUser0001;
-    console.log(curUserGoogleId);
 
     //get score results from api
-    console.log("addUserResults middleware", req.body);
     // fetch('https://api.myclimate.org/v1/footprint_calculators.json',{
     //   method: 'POST',
     //   headers: {
@@ -55,30 +53,30 @@ class ScoresController {
     // };
   }
 
-  getAllResultsById(req, res, next) {
-    console.log('heres the req.params obj: ', req.params)
-    const { id } = req.params;
-    ScoresModel.getResultsById(id)
-      .then((data) => {
-        console.log('DATA.ROWS FOR USERS RESULTS -> ', data.rows)
-        const results = data.rows;
-        if(!results.length) return res.locals.newUser = true;
-        res.locals.results = results;
-        return next();
-      })
-      .catch((err) => {
-        return next({err});
-      })
-  };
+  // getAllResultsById(req, res, next) {
+  //   const { id } = req.params;
+  //   res.cookies.
+  //   ScoresModel.getResultsById(id)
+  //     .then((data) => {
+  //       console.log('DATA.ROWS FOR USERS RESULTS -> ', data.rows)
+  //       const results = data.rows;
+  //       if(!results.length) return res.locals.newUser = true;
+  //       res.locals.results = results;
+  //       return next();
+  //     })
+  //     .catch((err) => {
+  //       return next({err});
+  //     })
+  // };
 
   getAllResultsByGoogleId(req, res, next) {
-    console.log('heres the req.params obj: ', req.params)
-    const { googleId } = req.params;
+    const googleId = req.cookies.greenRankCurrentUser0001;
+
     ScoresModel.getResultsByGoogleId(googleId)
       .then((data) => {
-        console.log('DATA.ROWS FOR USERS RESULTS -> ', data.rows)
+        console.log('DATA.ROWS FOR SINGLE USER -> ', data.rows)
         const results = data.rows;
-        if(!results.length) return res.locals.newUser = true;
+        console.log('RESULTS -> ', results)
         res.locals.results = results;
         return next();
       })
@@ -88,7 +86,6 @@ class ScoresController {
   };
 
   getRanks(req, res, next) {
-    console.log('inside getRanks in scoresController')
     ScoresModel.getAllScores()
       .then((data) => {
         const ranks = {};

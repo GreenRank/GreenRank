@@ -28,22 +28,11 @@ app.use('/postQuestionnaire',scoreRouter);
 app.use('/logout',logout);
 
 
-// app.use(express.static(path.resolve(__dirname, "../client")));
-
 app.get('/', (req,res)=>{
    res.status(200).sendFile(path.resolve(__dirname,'../client/index.html'))
 })
 
-
-app.get("/success", (req, res) => {
-  res.status(200).send()
-});
-
-
-
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
-
-
 
 app.use((err, req, res, next) => {
   console.log(err);
@@ -57,9 +46,7 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-/**
- * start server
- */
+
 createAllTables()
   .then(() => {
     app.listen(PORT, () => {
