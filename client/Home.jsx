@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { Nav } from "./Nav.jsx";
+import { Rankings } from "./Rankings.jsx";
+import { Profile } from "./Profile.jsx";
 
 export const Home = () => {
-  const getAllUserData = () => {
-    fetch("/allUserStats")
+  const [allUserInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    fetch("/getRankings")
       .then((res) => res.json())
-      .then((data) => console.log(data)); //set userProfile state)
-  };
+      .then((data) => {
+        const sorted = Object.entries(data).sort((a, b) => a - b);
+        setUserInfo(sorted);
+        // sorted.map()
+      });
+  });
 
   return (
     <div>
-      <Nav />,
+      <Nav />
       <div id="homeContainer">
         <Rankings getAllUserData={getAllUserData} />
         <Profile getAllUserData={getAllUserData} />

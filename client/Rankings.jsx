@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const Rankings = () => {
-  const [allUserInfo, setUserInfo] = useState([]);
-
   return (
     <div id="rankingsContainer">
       <header>
@@ -15,14 +13,13 @@ export const Rankings = () => {
               <th>Rank</th>
               <th>Team</th>
               <th>Points</th>
-              <th>+/-</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="rank">1</td>
-              <td class="userName">Raubern</td>
-              <td class="Footprint">1460</td>
+              <td className="rank">1</td>
+              <td className="userName">Raubern</td>
+              <td className="Footprint">1460</td>
             </tr>
           </tbody>
         </table>

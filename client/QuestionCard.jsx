@@ -37,7 +37,6 @@ export const QuestionCard = (props) => {
                 ...props.answersState,
                 [props.category]: rating,
               });
-              console.log("am i printing???????");
               console.log("current state: ", props.answersState);
             }}
             // onChange={updateState}
