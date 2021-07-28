@@ -21,9 +21,9 @@ app.set('view engine', 'ejs');
 
 
 app.use('/auth/google', authRouter);
-// app.use('/user',userRouter);
+app.use('/user',userRouter);
 app.use('/scores',scoreRouter);
-app.use('/logout',logout);
+app.use('/logout', logout);
 
 
 app.use(express.json());

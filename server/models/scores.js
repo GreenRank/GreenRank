@@ -16,7 +16,7 @@ class Scores {
         consumption_shopping varchar NOT NULL,
         household_area varchar NOT NULL,
         household_building varchar NOT NULL,
-        household_heating varchar NOT NULL,
+        household_heating varchar NOT NULL
       )`;
     return pool.query(query);
   };
@@ -31,12 +31,13 @@ class Scores {
 
   getResultsByGoogleId(id) {
     const query = `SELECT * FROM scores WHERE scores.googleId = $1`;
+    // SELECT * FROM scores s INNER JOIN users ON users.googleId = s.googleId WHERE users.googleId=110466235164956177628 THIS WONT WORK
     return pool.query(query, [id]);
   };
 
   // gets the overal scores for rankings
   getAllScores() {
-    const query = `SELECT user_id, score FROM scores`;
+    const query = `SELECT users.name, s.googleId, s.score FROM scores s INNER JOIN users ON users.googleId = s.googleId`;
     return pool.query(query);
   }
 };

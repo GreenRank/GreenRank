@@ -23,11 +23,6 @@
       "react-app/jest"
     ]
   },
-  "jest": {
-    "setupFiles": [
-      "./test/setup.js"
-    ]
-  },
   "author": "Raubern Totanes https://github.com/GreenRank/GreenRank <rstotanes@g.ucla.edu>",
   "license": "ISC",
   "dependencies": {
@@ -52,6 +47,7 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.0.2",
     "cross-env": "^7.0.3",
@@ -59,6 +55,7 @@
     "cypress": "^8.0.0",
     "dotenv": "^10.0.0",
     "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
     "eslint": "^7.31.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",

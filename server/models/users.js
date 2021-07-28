@@ -10,7 +10,7 @@ class User {
       users (
         id SERIAL PRIMARY KEY,
         name VARCHAR NOT NULL,
-        email VARCHAR UNIQUE NOT NULL
+        email VARCHAR UNIQUE NOT NULL,
         googleId VARCHAR UNIQUE NOT NULL
       );`
     return pool.query(query);

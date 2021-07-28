@@ -1,61 +1,47 @@
 import React, { useState, useEffect } from "react";
 
-const fakeData = [
-  {
-    name: 'Raubern',
-    score: '1049'
-  },
-  {
-    name: 'Ian',
-    score: '1600'
-  },
-  {
-    name: 'Walker',
-    score: '2106'
-  },
-  {
-    name: 'Nitin',
-    score: '9001'
-  },
-]
-
 export const Rankings = () => {
   let rankings = [];
 
-  // rankings = fakeData.map((user, index) => {
-  //   return (
-  //     <tr>
-  //       <td className="rank">{index + 1}</td>
-  //       <td className="userName">{user.name}</td>
-  //       <td className="Footprint">{user.score}</td>
-  //     </tr>
-  //   )
-  // })
-
-    fetch("/ranks")
+  // useEffect(() => {
+    fetch('/scores/ranks')
       .then((res) => res.json())
       .then((data) => {
-        const sorted = Object.entries(data).sort((a, b) => a.score - b.score);
+        // console.log('DATA: ', data.ranks)
+        const sorted = Object.entries(data.ranks).sort((a, b) => a.score - b.score);
         console.log('SORTED: ', sorted)
-        // setUserInfo(sorted);
-        sorted.map((user, index) => {
-          return (
+        sorted.forEach((user, index) => {
+          console.log(`${index + 1} => ${user[0]} => ${user[1]}`)
+          console.log('rankings to render: ', rankings)
+          rankings.push(
             <tr>
               <td className="rank">{index + 1}</td>
-              <td className="userName">{user.name}</td>
-              <td className="Footprint">{user.score}</td>
+              <td className="userName">{user[0]}</td>
+              <td className="Footprint">{user[1]}</td>
             </tr>
           )
         })
       });
+  // },[])
 
-
+  rankings.push(
+    <tr key={0}>
+      <td className="rank">1</td>
+      <td className="userName">why cant i get this to work T.T</td>
+      <td className="Footprint">1</td>
+    </tr>,
+    <tr key={1}>
+      <td className="rank">1</td>
+      <td className="userName">mee</td>
+      <td className="Footprint">1</td>
+    </tr>
+  )
   return (
     <div id="rankingsContainer">
       <header>
         <h1>Greenest Users</h1>
       </header>
-      <div class="wrapper">
+      <div className="wrapper">
         <table>
           <thead>
             <tr>
