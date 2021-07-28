@@ -23,6 +23,11 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+    "setupFiles": [
+      "./test/setup.js"
+    ]
+  },
   "author": "Raubern Totanes https://github.com/GreenRank/GreenRank <rstotanes@g.ucla.edu>",
   "license": "ISC",
   "dependencies": {
@@ -53,10 +58,12 @@
     "css-loader": "^5.2.6",
     "cypress": "^8.0.0",
     "dotenv": "^10.0.0",
+    "enzyme": "^3.11.0",
     "eslint": "^7.31.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "isomorphic-fetch": "^3.0.0",
+    "jest": "^27.0.6",
     "node-sass": "^6.0.0",
     "nodemon": "^2.0.7",
     "postcss-loader": "^5.3.0",

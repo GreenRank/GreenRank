@@ -10,13 +10,13 @@ class Scores {
       scores (
         id serial PRIMARY KEY,
         googleId varchar NOT NULL,
-        score varchar NOT NULL
-        mobility_vehicles varchar NOT NULL
-        consumption_food NOT NULL
-        consumption_shopping varchar NOT NULL
-        household_area varchar NOT NULL
-        household_building varchar NOT NULL
-        household_heating varchar NOT NULL
+        score varchar NOT NULL,
+        mobility_vehicles varchar NOT NULL,
+        consumption_food varchar NOT NULL,
+        consumption_shopping varchar NOT NULL,
+        household_area varchar NOT NULL,
+        household_building varchar NOT NULL,
+        household_heating varchar NOT NULL,
       )`;
     return pool.query(query);
   };
