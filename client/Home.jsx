@@ -13,7 +13,9 @@ export const Home = () => {
           <Rankings/>
         </div>
         <div className="homeColumn">
-          <Profile />
+          <Profile 
+            // finalData={finalData}
+            />
         </div>
       </div>
     </div>
