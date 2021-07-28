@@ -1,8 +1,12 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
+// import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
+
+
 import SignIn from '../client/SignIn';
+// import Home from '../client/Home';
+import Questionnaire from '../client/Questionnaire'
 
 configure({ adapter: new Adapter() });
 

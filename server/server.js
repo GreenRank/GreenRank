@@ -11,6 +11,10 @@ const logout = require('./routes/logout.js')
 const PORT = 3000;
 
 const passport = require("passport");
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -18,32 +22,17 @@ app.use(passport.session());
 app.set('view engine', 'ejs');
 
 
-
-
 app.use('/auth/google', authRouter);
-app.use('/user',userRouter);
-app.use('/scores',scoreRouter);
-app.use('/logout', logout);
+// app.use('/user',userRouter);
+app.use('/postQuestionnaire',scoreRouter);
+app.use('/logout',logout);
 
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.resolve(__dirname, "../client")));
 
 app.get('/', (req,res)=>{
    res.status(200).sendFile(path.resolve(__dirname,'../client/index.html'))
 })
 
-
-app.get("/success", (req, res) => {
-  res.status(200).send()
-});
-
-
-
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
-
-
 
 app.use((err, req, res, next) => {
   console.log(err);
@@ -57,9 +46,7 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-/**
- * start server
- */
+
 createAllTables()
   .then(() => {
     app.listen(PORT, () => {

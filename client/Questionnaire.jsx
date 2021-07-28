@@ -9,6 +9,7 @@ const breakPoints = [{ width: 1, itemsToShow: 1 }];
 export const Questionnaire = () => {
   const [answers, setAnswers] = useState({
     mobility_vehicles: "",
+    mobility_flight: "low",
     consumption_food: "",
     consumption_shopping: "",
     household_area: "",

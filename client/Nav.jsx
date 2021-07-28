@@ -10,17 +10,23 @@ export const Nav = () => {
   return (
     <div className="navBar">
       <div>
-        <button>
-          <Link to="/Questionnaire">Take the Questionnaire</Link>
+        <button className="navButtons">
+          <Link to="/Questionnaire" className="navButtons">
+            Take the Questionnaire
+          </Link>
         </button>
       </div>
       <div>
-        <button>
-          <Link to="/About">About</Link>
+        <button className="navButtons">
+          <Link className="navButtons" to="/About">
+            About
+          </Link>
         </button>
       </div>
       <div>
-        <button onClick={logout}>Sign Out</button>
+        <button onClick={logout} className="navButtons">
+          Sign Out
+        </button>
       </div>
     </div>
   );
