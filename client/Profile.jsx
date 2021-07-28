@@ -7,7 +7,6 @@ export const Profile = () => {
     { name: "Group A", value: 400 },
     { name: "Group B", value: 300 },
     { name: "Group C", value: 300 },
-    { name: "Group D", value: 200 },
   ]);
   // const [activeIndex, setActiveIndex] = useState(null);
   // const workingData = [];
@@ -63,10 +62,6 @@ export const Profile = () => {
         });
         workingData.push({
           name: "household_kg",
-          value: parseInt(Number(pieChartData.household_kg).toFixed(0)+0),
-        });
-        workingData.push({
-          name: "home_kg",
           value: parseInt(Number(pieChartData.household_kg).toFixed(0)+0),
         });
         console.log("working data line 57", workingData);
