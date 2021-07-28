@@ -7,16 +7,14 @@ import React, { useState } from "react";
 const breakPoints = [{ width: 1, itemsToShow: 1 }];
 
 export const Questionnaire = () => {
-  const [answers, setAnswers] = useState([
-    {
-      mobility_vehicles: "",
-      consumption_food: "",
-      consumption_shopping: "",
-      household_area: "",
-      household_building: "",
-      household_heating: "",
-    },
-  ]);
+  const [answers, setAnswers] = useState({
+    mobility_vehicles: "",
+    consumption_food: "",
+    consumption_shopping: "",
+    household_area: "",
+    household_building: "",
+    household_heating: "",
+  });
 
   return (
     <div>
@@ -27,9 +25,9 @@ export const Questionnaire = () => {
             key={index}
             questionTitle={question["questionTitle"]}
             question={question["question"]}
-            answers={question["answers"]}
+            answersArray={question["answers"]}
             length={questions.length}
-            category={questions["category"]}
+            category={question["category"]}
             setAnswers={setAnswers}
             answersState={answers}
           />

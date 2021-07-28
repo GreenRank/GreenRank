@@ -26,6 +26,7 @@
   "author": "Raubern Totanes https://github.com/GreenRank/GreenRank <rstotanes@g.ucla.edu>",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "express": "^4.12.3",
     "express-session": "^1.17.2",
     "passport": "^0.4.1",

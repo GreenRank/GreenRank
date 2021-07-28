@@ -1,14 +1,17 @@
 const path = require("path");
 const express = require("express");
+const cookieParser = require('cookie-parser');
 const app = express();
 
 const { createAllTables } = require('./models/index')
 const userRouter = require('./routes/userRouter');
 const scoreRouter = require('./routes/scoreRouter')
 const authRouter = require("./routes/auth.js");
+const logout = require('./routes/logout.js')
 const PORT = 3000;
 
 const passport = require("passport");
+app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -20,6 +23,7 @@ app.set('view engine', 'ejs');
 app.use('/auth/google', authRouter);
 // app.use('/user',userRouter);
 app.use('/scores',scoreRouter);
+app.use('/logout',logout);
 
 
 app.use(express.json());

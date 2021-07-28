@@ -18,7 +18,8 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/" }),
   function (req, res) {
     console.log("curUser in server", curUser);
-    res.redirect("/");
+    res.cookie('greenRankCurrentUser0001',curUser.googleid)
+    res.redirect('/');
   }
 );
 passport.use(

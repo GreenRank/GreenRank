@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import questions from "./questions.js";
 
 export const QuestionCard = (props) => {
   const submitForm = () => {
@@ -13,26 +14,38 @@ export const QuestionCard = (props) => {
     });
   };
 
-  const updateState = (event) => {};
+  // const updateState = (event) => {};
 
-  const answers = Object.keys(props.answers).map((rating, index) => {
-    const category = props.category;
-
-    return (
-      <div className="buttonSpacing" key={index}>
-        <input
-          type="radio"
-          id="html"
-          name="climateHabit"
-          value={rating}
-          answer={props.answers[rating]}
-          // onChange={props.setAnswers({ category: event.target.answer })}
-          onChange={updateState}
-        ></input>
-        <label className="buttons">{props.answers[rating]}</label>
-      </div>
-    );
-  });
+  // send keys to the API
+  // itaerate thru the keys of answers objects
+  const category = props.category;
+  const answersPerCard = Object.keys(props.answersArray).map(
+    (rating, index) => {
+      return (
+        <div className="buttonSpacing" key={index}>
+          <input
+            type="radio"
+            id="html"
+            name="climateHabit"
+            // value={rating}
+            answer={props.answersArray[rating]}
+            onChange={(e) => {
+              console.log(
+                `for this category: ${props.category}, my choice is ${rating}`
+              );
+              props.setAnswers({
+                ...props.answersState,
+                [props.category]: rating,
+              });
+              console.log("current state: ", props.answersState);
+            }}
+            // onChange={updateState}
+          ></input>
+          <label className="buttons">{props.answersArray[rating]}</label>
+        </div>
+      );
+    }
+  );
 
   return (
     <form className="container">
@@ -40,17 +53,16 @@ export const QuestionCard = (props) => {
         <h2>{props.questionTitle}</h2>
         <p>{props.question}</p>
       </div>
-      {answers}
+      {answersPerCard}
       {props.id === 5 && (
         <button
-          type="submit"
-          value="Submit"
+          // value="Submit"
           className="buttons" /*onClick={this.state.submitForm}*/
           onClick={() =>
             console.log(
               "clicked; here is answers state obj: ",
               props.answersState
-            )
+            )(submitForm)
           }
           // onSubmit={(submitForm)}
         >
