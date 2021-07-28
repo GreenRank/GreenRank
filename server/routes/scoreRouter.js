@@ -15,7 +15,8 @@ router.get(
 // get all scores for a single user
 router.get(
   '/getUserResults',
-  scoresController.getAllResultsByGoogleId,
+  scoresController.getAllResultsById,
+  // scoresController.getAllResultsByGoogleId,
   (req, res) => res.status(200).json({ results: res.locals.results })
 );
 

@@ -183,6 +183,10 @@ th {
     white-space: nowrap;
 }
 
+td {
+  color: black;
+}
+
 td, th {
     padding: 1em 1.5em;
     text-align: left;
