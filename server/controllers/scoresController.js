@@ -1,18 +1,59 @@
 const { ScoresModel } = require('../models');
+const fetch  = require('node-fetch')
+const express = require('express')
 
 class ScoresController {
 
   addUserResults(req, res, next) {
-    const { id, score } = req.body;
-    ScoresModel.addResults(id, score)
-      .then((data) => {
-        res.locals.score = score;
-        return next();
-      })
-      .catch((err) => {
-        return next(err);
-      });
-  };
+   const score = {
+      "kg": 12238.475460077108,
+      "mobility_kg": "2535.6713591286748",
+      "consumption_kg": "6697.282654256381",
+      "household_kg": "1795.5214466920533",
+      "public_services_kg": "1210.0",
+      "price_in_eur_cents": 0,
+      // "input_params": {
+      // "mobility_vehicles": "high",
+      // "mobility_flight": "medium",
+      // "consumption_food": "giant",
+      // "consumption_shopping": "high",
+      // "household_area": "low",
+      // "household_building": "high",
+      // "household_heating": "high"
+      // }
+      }
+    const curUserGoogleId = req.cookies.greenRankCurrentUser0001;
+    console.log(curUserGoogleId);
+
+    //get score results from api
+    console.log("addUserResults middleware", req.body);
+    // fetch('https://api.myclimate.org/v1/footprint_calculators.json',{
+    //   method: 'POST',
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(req.body),
+    //   })
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data)
+    //   score = data;
+    // })
+    // .catch(err=>console.log(err))
+    
+    
+    // let { score } = req.body;
+    
+    ScoresModel.addResults(curUserGoogleId, score)
+    .then((data) => {
+      res.locals.score = score;
+      return next();
+    })
+    .catch((err) => {
+      return next(err);
+    });
+    // };
+  }
 
   getAllResultsById(req, res, next) {
     console.log('heres the req.params obj: ', req.params)
@@ -51,13 +92,12 @@ class ScoresController {
     ScoresModel.getAllScores()
       .then((data) => {
         const ranks = {};
-        console.log('THIS IS data.rows -> ', data.rows);
+        console.log('data.rows', data.rows)
         data.rows.forEach(({name, score}) => {
-          if (!ranks[name]) ranks[name] = score;
-          else ranks[name] = Math.min(ranks[name], Number(score))
-          // ranks[name] = Math.min((ranks[name] || null), Number(score));
+          if(!ranks[name]) ranks[name] = score;
+          ranks[name] = Math.min(ranks[name], score);
         });
-        console.log('RES.LOCALS.RANKS: ', ranks)
+        console.log(ranks);
         res.locals.ranks = ranks;
         return next();
       })

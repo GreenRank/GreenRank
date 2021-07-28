@@ -5,6 +5,15 @@ const { scoresController } = require('../controllers/scoresController');
 
 const router = Router();
 
+// post the questionnaire results from the current user
+router.post(
+  "/",
+  scoresController.addUserResults,
+  (req, res) => {
+    res.status(200).json({ message: 'Questionnaire Posted!' })
+  }
+)
+
 // get all scores from all users; frontend will sort
 router.get(
   '/ranks',
