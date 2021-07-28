@@ -55,10 +55,28 @@ class ScoresController {
     // };
   }
 
+  getAllResultsById(req, res, next) {
+    console.log('heres the req.params obj: ', req.params)
+    const { id } = req.params;
+    ScoresModel.getResultsById(id)
+      .then((data) => {
+        console.log('DATA.ROWS FOR USERS RESULTS -> ', data.rows)
+        const results = data.rows;
+        if(!results.length) return res.locals.newUser = true;
+        res.locals.results = results;
+        return next();
+      })
+      .catch((err) => {
+        return next({err});
+      })
+  };
+
   getAllResultsByGoogleId(req, res, next) {
-    const { googleId } = req.body;
+    console.log('heres the req.params obj: ', req.params)
+    const { googleId } = req.params;
     ScoresModel.getResultsByGoogleId(googleId)
       .then((data) => {
+        console.log('DATA.ROWS FOR USERS RESULTS -> ', data.rows)
         const results = data.rows;
         if(!results.length) return res.locals.newUser = true;
         res.locals.results = results;
@@ -70,16 +88,18 @@ class ScoresController {
   };
 
   getRanks(req, res, next) {
+    console.log('inside getRanks in scoresController')
     ScoresModel.getAllScores()
       .then((data) => {
         const ranks = {};
         console.log('data.rows', data.rows)
         data.rows.forEach(({name, score}) => {
-          if(!ranks[name]) ranks[name] = Infinity;
+          if(!ranks[name]) ranks[name] = score;
           ranks[name] = Math.min(ranks[name], score);
         });
         console.log(ranks);
         res.locals.ranks = ranks;
+        return next();
       })
       .catch((err) => {
         return next({err});

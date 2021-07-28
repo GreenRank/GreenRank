@@ -55,7 +55,9 @@ export const Rankings = () => {
               <th>Footprint</th>
             </tr>
           </thead>
-          <tbody>{rankings}</tbody>
+          <tbody>
+            {rankings}
+          </tbody>
         </table>
       </div>
     </div>
