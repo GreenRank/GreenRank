@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Nav } from "./Nav";
 import { SignIn } from "./SignIn";
+import { Profile } from "./Profile";
 import { Questionnaire } from "./Questionnaire.jsx";
 import { About } from "./About.jsx";
 import { Home } from "./Home.jsx";
@@ -20,13 +21,20 @@ const App = () => {
   return (
     <div id='main-container'>
       <Router>
-        <Nav />
 
         <Switch>
           <Route exact path="/" component={SignIn} />
-          <Route path="/Home" component={Home} />
-          <Route path="/Questionnaire" component={Questionnaire} />
-          <Route path="/About" component={About} />
+          <Route>
+
+            <Nav />
+            <Switch>
+              <Route path="/Home" component={Home} />
+              <Route path="/Questionnaire" component={Questionnaire} />
+              <Route path="/About" component={About} />
+              {/* <Route path="/Profile" component={Profile} /> */}
+            </Switch>
+
+          </Route>
         </Switch>
       </Router>
     </div>

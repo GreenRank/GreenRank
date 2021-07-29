@@ -20,6 +20,13 @@ export const Nav = () => {
         </div>
         <div>
           <button className="navButtons">
+            <Link className="navButtons" to="/Home">
+              Home
+            </Link>
+          </button>
+        </div>
+        <div>
+          <button className="navButtons">
             <Link className="navButtons" to="/About">
               About
             </Link>

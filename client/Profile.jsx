@@ -20,9 +20,7 @@ export const Profile = () => {
     fetch("/postQuestionnaire/getUserResults")
       .then((res) => res.json())
       .then((data) => {
-        console.log("data: ", data);
         const pieChartData = data.results[data.results.length - 1];
-        console.log("piechartdata: ", pieChartData);
 
         //configure array for pie chart for user's most recent results
         const workingData = [];

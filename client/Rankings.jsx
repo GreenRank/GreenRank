@@ -7,9 +7,7 @@ export const Rankings = () => {
   fetch("/postQuestionnaire/ranks")
     .then((res) => res.json())
     .then((data) => {
-      const sorted = Object.entries(data.ranks).sort(
-        (a, b) => a.score - b.score
-      );
+      const sorted = Object.entries(data.ranks).sort((a,b)=>a[1]-b[1])
       const newRank = [];
       sorted.forEach((user, index) => {
         newRank.push(
