@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
+    "postinstall": "npm run build",
+    "start": "node server/server.js",
+    "start2": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
     "dev2": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot --inline --progress --content-base ./\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",

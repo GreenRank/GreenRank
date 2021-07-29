@@ -1,7 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const express = require("express");
-// require("dotenv").config();
+require("dotenv").config();
 const { UserModel } = require("../models");
 const router = express.Router();
 
