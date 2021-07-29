@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production nodemon server/server.js",
+    "postinstall": "npm run build",
+    "start": "node server/server.js",
+    "start2": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
     "dev2": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot --inline --progress --content-base ./\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"",
@@ -27,8 +29,12 @@
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "express": "^4.12.3",
     "express-session": "^1.17.2",
+    "jest-canvas-mock": "^2.3.1",
+    "jest-enzyme": "^7.1.2",
     "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",

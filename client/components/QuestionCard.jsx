@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-import questions from "./questions.js";
+import questions from "../questions.js";
 
 export const QuestionCard = (props) => {
   const history = useHistory();

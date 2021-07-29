@@ -10,6 +10,7 @@ router.post(
   "/",
   scoresController.addUserResults,
   (req, res) => {
+    console.log('in socre router')
     res.status(200).json({ message: 'Questionnaire Posted!' })
   }
 )

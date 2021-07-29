@@ -13,14 +13,6 @@ class ScoresController {
       "public_services_kg": Math.random() * 1000,
       "price_in_eur_cents": 0,
       }
-  //  const score = {
-  //     "kg": 12238.475460077108,
-  //     "mobility_kg": "5535.6713591286748",
-  //     "consumption_kg": "2697.282654256381",
-  //     "household_kg": "3795.5214466920533",
-  //     "public_services_kg": "210.0",
-  //     "price_in_eur_cents": 0,
-  //     }
   score.kg = score.mobility_kg + score.consumption_kg + score.household_kg + score.public_services_kg;
     const curUserGoogleId = req.cookies.greenRankCurrentUser0001;
 
@@ -52,22 +44,6 @@ class ScoresController {
     });
     // };
   }
-
-  // getAllResultsById(req, res, next) {
-  //   const { id } = req.params;
-  //   res.cookies.
-  //   ScoresModel.getResultsById(id)
-  //     .then((data) => {
-  //       console.log('DATA.ROWS FOR USERS RESULTS -> ', data.rows)
-  //       const results = data.rows;
-  //       if(!results.length) return res.locals.newUser = true;
-  //       res.locals.results = results;
-  //       return next();
-  //     })
-  //     .catch((err) => {
-  //       return next({err});
-  //     })
-  // };
 
   getAllResultsByGoogleId(req, res, next) {
     const googleId = req.cookies.greenRankCurrentUser0001;
