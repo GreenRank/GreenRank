@@ -9,19 +9,19 @@ export const Nav = () => {
   }
   return (
     <div className="navBar">
-      <h2 id="navTitle">Green Score</h2>
-      <div id='nav-buttons-div'>
+      <h2 id="navTitle">Green Rank</h2>
+      <div id="nav-buttons-div">
         <div>
           <button className="navButtons">
-            <Link to="/Questionnaire" className="navButtons">
-              Take the Questionnaire
+            <Link className="navButtons" to="/Home">
+              Home
             </Link>
           </button>
         </div>
         <div>
           <button className="navButtons">
-            <Link className="navButtons" to="/Home">
-              Home
+            <Link to="/Questionnaire" className="navButtons">
+              Take the Questionnaire
             </Link>
           </button>
         </div>

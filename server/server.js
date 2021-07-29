@@ -49,7 +49,7 @@ const host = "0.0.0.0"
 const ports = process.env.PORT || 3000
 createAllTables()
   .then(() => {
-    app.listen(8080, () => {
+    app.listen(3000, () => {
       console.log(`Server listening on port: ${PORT}...`);
     });
 });
