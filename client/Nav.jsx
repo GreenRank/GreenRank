@@ -9,24 +9,27 @@ export const Nav = () => {
   }
   return (
     <div className="navBar">
-      <div>
-        <button className="navButtons">
-          <Link to="/Questionnaire" className="navButtons">
-            Take the Questionnaire
-          </Link>
-        </button>
-      </div>
-      <div>
-        <button className="navButtons">
-          <Link className="navButtons" to="/About">
-            About
-          </Link>
-        </button>
-      </div>
-      <div>
-        <button onClick={logout} className="navButtons">
-          Sign Out
-        </button>
+      <h2 id="navTitle">Green Score</h2>
+      <div id='nav-buttons-div'>
+        <div>
+          <button className="navButtons">
+            <Link to="/Questionnaire" className="navButtons">
+              Take the Questionnaire
+            </Link>
+          </button>
+        </div>
+        <div>
+          <button className="navButtons">
+            <Link className="navButtons" to="/About">
+              About
+            </Link>
+          </button>
+        </div>
+        <div>
+          <button onClick={logout} className="navButtons">
+            Sign Out
+          </button>
+        </div>
       </div>
     </div>
   );

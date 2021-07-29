@@ -7,20 +7,11 @@ class ScoresController {
   addUserResults(req, res, next) {
    const score = {
       "kg": 12238.475460077108,
-      "mobility_kg": "2535.6713591286748",
-      "consumption_kg": "6697.282654256381",
-      "household_kg": "1795.5214466920533",
-      "public_services_kg": "1210.0",
+      "mobility_kg": "5535.6713591286748",
+      "consumption_kg": "2697.282654256381",
+      "household_kg": "3795.5214466920533",
+      "public_services_kg": "210.0",
       "price_in_eur_cents": 0,
-      // "input_params": {
-      // "mobility_vehicles": "high",
-      // "mobility_flight": "medium",
-      // "consumption_food": "giant",
-      // "consumption_shopping": "high",
-      // "household_area": "low",
-      // "household_building": "high",
-      // "household_heating": "high"
-      // }
       }
     const curUserGoogleId = req.cookies.greenRankCurrentUser0001;
 

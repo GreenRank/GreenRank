@@ -160,19 +160,34 @@ body {
 
 /* NavBar */
 
+
 .navBar {
   font-size: 1.7rem;
   font-family: 'Architects Daughter', cursive;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 30px;
   /* margin-left: 60%; */
 }
 
+#navTitle {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 3rem;
+  color: #9da64e;
+}
+
+#nav-buttons-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .navButtons{
   font-family: 'Architects Daughter', cursive;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #485852;
   margin: auto 1rem;
   color: #868d4f;
@@ -315,16 +330,31 @@ td.rank {
   margin-top: 1rem;
 }
 
-#custom-tooltip {
+.custom-tooltip {
   background-color: white;
   color: black;
-  font-size: 2rem;
-  opacity: 0.5;
+  font-size: 1rem;
+  opacity: 0.8;
   border: 1px solid black;
-  border-radius: 1rem;
+  border-radius: 0.6rem;
+  padding: 5px;
 }
 
-/* About */
+/* -------------------------------------------------------------- */
+/* -------------------------- BAR CHART ------------------------- */
+/* -------------------------------------------------------------- */
+
+#bar-chart-div {
+  margin-top: 3rem;
+}
+
+#bar-chart {
+  margin-top: 1rem;
+}
+
+/* -------------------------------------------------------------- */
+/* ---------------------------- ABOUT --------------------------- */
+/* -------------------------------------------------------------- */
 
 #about {
   display: flex;
@@ -380,6 +410,14 @@ td.rank {
 #about-img {
   margin: 3rem 0;
 }
+
+#greta {
+  padding: 3rem;
+}
+
+
+
+
 
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
 
