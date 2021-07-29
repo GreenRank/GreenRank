@@ -1,1 +1,3 @@
-web: concurrently \"cross-env NODE_ENV=development webpack serve --open --hot\" \"nodemon ./server/server.js\" \"sass --watch client/stylesheets:client/stylesheets\"
+web: node server/server.js
+process: cross-env NODE_ENV=development webpack serve --open --hot
+style: sass --watch client/stylesheets:client/stylesheets
