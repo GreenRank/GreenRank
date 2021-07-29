@@ -13,12 +13,22 @@ body {
   color: white;
   margin: 0;
   padding: 0;
+  font-family: 'Architects Daughter', cursive;
+
+}
+
+#main-container {
+  margin: 0 4rem;
 }
 
 /* SignIn */
 
 #signInContainer {
-  margin-top: 20%;
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #title {
@@ -45,7 +55,7 @@ body {
   box-shadow: 2px 2px 5px rgb(210, 210, 210);
   cursor: pointer;
   display:inline-block;
-  width: 20%;
+  /* width: 20%; */
   position:relative;
   border-color: #485852;
   text-align: center;
@@ -72,12 +82,20 @@ body {
 
 /* QuestionCard */
 
+#carousel {
+  height: 100vh;
+}
+
+
+/* QuestionCard */
+
 .container {
   font-family: 'Architects Daughter', cursive;
   color: #9ca74e;
   display: flex;
   flex-direction: column;
   margin-top: 10rem;
+  height: 100vh;
   /* position: absolute;
   left: 50%;
   top: 60%;
@@ -142,6 +160,7 @@ body {
 
 /* NavBar */
 
+
 .navBar {
   font-size: 1.7rem;
   font-family: 'Architects Daughter', cursive;
@@ -149,16 +168,30 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px;
-  margin-left: 60%;
+  /* margin-left: 60%; */
+}
+
+#navTitle {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 3rem;
+  color: #9da64e;
+}
+
+#nav-buttons-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .navButtons{
   font-family: 'Architects Daughter', cursive;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #485852;
-  margin: auto;
+  margin: auto 1rem;
   color: #868d4f;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 10px;
   cursor: pointer;
   display:inline-block;
@@ -192,6 +225,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  margin: 2rem 3rem;
 
 }
 
@@ -209,7 +243,7 @@ body {
   font-family: 'Architects Daughter', cursive;
   font-size: 3rem;
   margin: auto;
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   justify-content: center;
 }
@@ -230,7 +264,7 @@ body {
 	line-height: 1.5em;
 	margin: 0 auto;
 	padding: 2em 0 3em;
-	width: 90%;
+	/* width: 90%; */
 	max-width: 2000px;
 	overflow: hidden;
 }
@@ -285,6 +319,127 @@ td.rank {
 
 /* Pie Chart */
 
-#pieChart {
-  margin-top: 50px;
+#profile-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#pie-chart {
+  margin-top: 1rem;
+}
+
+.custom-tooltip {
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  opacity: 0.8;
+  border: 1px solid black;
+  border-radius: 0.6rem;
+  padding: 5px;
+}
+
+/* -------------------------------------------------------------- */
+/* -------------------------- BAR CHART ------------------------- */
+/* -------------------------------------------------------------- */
+
+#bar-chart-div {
+  margin-top: 3rem;
+}
+
+#bar-chart {
+  margin-top: 1rem;
+}
+
+/* -------------------------------------------------------------- */
+/* ---------------------------- ABOUT --------------------------- */
+/* -------------------------------------------------------------- */
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-desc {
+  color: darkgreen;
+  font-family: Arch;
+  font-size: 1.5rem;
+  font-family: 'Architects Daughter', cursive;
+
+}
+
+#about-count {
+  font-size: 4rem;
+  font-weight: bolder;
+  color: darkgreen;
+}
+
+#go-back {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1rem;
+  background-color: #868d4f;
+  margin: auto;
+  color: #868d4f;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(210, 210, 210);
+  cursor: pointer;
+  display:inline-block;
+  /* width: 20%; */
+  position:relative;
+  border-color: #485852;
+  text-align: center;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #868d4f;
+  outline: none;
+  transition: .5s ease-in-out;
+}
+
+#go-back:hover {
+  transition: .5s ease-in-out;
+  background: #868d4f;
+  color: #eaf2e3;
+}
+#about-img {
+  margin: 3rem 0;
+}
+
+#greta {
+  padding: 3rem;
+}
+
+
+
+
+
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+
+}
+
+@media screen and (min-width: 813px) and (max-width: 1199px) {
+  #main-container {
+    margin: 0;
+  }
+  #homeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+}
+
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
 }

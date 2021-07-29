@@ -7,16 +7,14 @@ export const Rankings = () => {
   fetch("/postQuestionnaire/ranks")
     .then((res) => res.json())
     .then((data) => {
-      const sorted = Object.entries(data.ranks).sort(
-        (a, b) => a.score - b.score
-      );
+      const sorted = Object.entries(data.ranks).sort((a,b)=>a[1]-b[1])
       const newRank = [];
       sorted.forEach((user, index) => {
         newRank.push(
           <tr key={index}>
             <td className="rank">{index + 1}</td>
             <td className="userName">{user[0]}</td>
-            <td className="Footprint">{user[1]}</td>
+            <td className="Footprint">{user[1].toFixed(1)}</td>
           </tr>
         );
       });

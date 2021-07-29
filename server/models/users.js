@@ -16,9 +16,9 @@ class User {
     return pool.query(query);
   };
   
-  createUserWithGoogle(name, username, googleId) {
-    const query = `INSERT INTO users(name, username, googleId) VALUES ($1, $2, $3)`;
-    return pool.query(query, [name, username, googleId]);
+  createUserWithGoogle(name, email, googleId) {
+    const query = `INSERT INTO users(name, email, googleId) VALUES ($1, $2, $3)`;
+    return pool.query(query, [name, email, googleId]);
   };
 
   getUserByGoogleId(id) {
