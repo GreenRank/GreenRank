@@ -1,7 +1,11 @@
 import React from 'react';
-// import { configure, shallow } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { configure, shallow } from 'enzyme';
+import 'jest-enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import 'jest-canvas-mock';
+import fetch from 'node-fetch';
 import toJson from 'enzyme-to-json';
+
 
 
 import SignIn from '../client/SignIn';
