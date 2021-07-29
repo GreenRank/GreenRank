@@ -6,22 +6,22 @@ class ScoresController {
 
   addUserResults(req, res, next) {
    const score = {
-      "kg": 12238.475460077108,
-      "mobility_kg": "2535.6713591286748",
-      "consumption_kg": "6697.282654256381",
-      "household_kg": "1795.5214466920533",
-      "public_services_kg": "1210.0",
+      "kg": 0,
+      "mobility_kg": Math.random() * 1000,
+      "consumption_kg": Math.random() * 1000,
+      "household_kg": Math.random() * 1000,
+      "public_services_kg": Math.random() * 1000,
       "price_in_eur_cents": 0,
-      // "input_params": {
-      // "mobility_vehicles": "high",
-      // "mobility_flight": "medium",
-      // "consumption_food": "giant",
-      // "consumption_shopping": "high",
-      // "household_area": "low",
-      // "household_building": "high",
-      // "household_heating": "high"
-      // }
       }
+  //  const score = {
+  //     "kg": 12238.475460077108,
+  //     "mobility_kg": "5535.6713591286748",
+  //     "consumption_kg": "2697.282654256381",
+  //     "household_kg": "3795.5214466920533",
+  //     "public_services_kg": "210.0",
+  //     "price_in_eur_cents": 0,
+  //     }
+  score.kg = score.mobility_kg + score.consumption_kg + score.household_kg + score.public_services_kg;
     const curUserGoogleId = req.cookies.greenRankCurrentUser0001;
 
     //get score results from api
@@ -89,12 +89,10 @@ class ScoresController {
     ScoresModel.getAllScores()
       .then((data) => {
         const ranks = {};
-        console.log('data.rows', data.rows)
         data.rows.forEach(({name, score}) => {
           if(!ranks[name]) ranks[name] = score;
           ranks[name] = Math.min(ranks[name], score);
         });
-        console.log(ranks);
         res.locals.ranks = ranks;
         return next();
       })
