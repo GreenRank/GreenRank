@@ -47,7 +47,7 @@ app.use((err, req, res, next) => {
 
 createAllTables()
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log(`Server listening on port: ${PORT}...`);
     });
 });
