@@ -7,15 +7,12 @@ export const Home = () => {
 
   return (
     <div>
-      <Nav />
       <div id="homeContainer">
-        <div className="homeColumn">
-          <Rankings/>
+        <div className="homeColumn" id='rankings-component'>
+          <Rankings />
         </div>
-        <div className="homeColumn">
-          <Profile 
-            // finalData={finalData}
-            />
+        <div className="homeColumn" id='profile-component'>
+          <Profile />
         </div>
       </div>
     </div>

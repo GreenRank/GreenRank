@@ -16,7 +16,7 @@ export const Rankings = () => {
           <tr key={index}>
             <td className="rank">{index + 1}</td>
             <td className="userName">{user[0]}</td>
-            <td className="Footprint">{user[1]}</td>
+            <td className="Footprint">{user[1].toFixed(1)}</td>
           </tr>
         );
       });

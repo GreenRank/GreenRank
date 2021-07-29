@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Nav } from "./Nav";
 import { SignIn } from "./SignIn";
 import { Questionnaire } from "./Questionnaire.jsx";
 import { About } from "./About.jsx";
@@ -17,8 +18,10 @@ const App = () => {
   if (cookie) history.push("./Home");
 
   return (
-    <div>
+    <div id='main-container'>
       <Router>
+        <Nav />
+
         <Switch>
           <Route exact path="/" component={SignIn} />
           <Route path="/Home" component={Home} />

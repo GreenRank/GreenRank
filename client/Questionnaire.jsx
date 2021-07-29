@@ -18,7 +18,7 @@ export const Questionnaire = () => {
   });
 
   return (
-    <div>
+    <div id='carousel'>
       <Carousel breakPoints={breakPoints}>
         {questions.map((question, index) => (
           <QuestionCard
