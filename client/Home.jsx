@@ -8,10 +8,10 @@ export const Home = () => {
   return (
     <div>
       <div id="homeContainer">
-        <div className="homeColumn" id='rankings-component'>
+        <div className="homeColumn">
           <Rankings />
         </div>
-        <div className="homeColumn" id='profile-component'>
+        <div className="homeColumn">
           <Profile />
         </div>
       </div>

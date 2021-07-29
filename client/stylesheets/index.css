@@ -24,7 +24,11 @@ body {
 /* SignIn */
 
 #signInContainer {
-  margin-top: 20%;
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #title {
@@ -79,7 +83,7 @@ body {
 /* QuestionCard */
 
 #carousel {
-  height: 100%
+  height: 100vh;
 }
 
 
@@ -91,7 +95,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 10rem;
-  height: 100%;
+  height: 100vh;
   /* position: absolute;
   left: 50%;
   top: 60%;
@@ -206,6 +210,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  margin: 2rem 3rem;
 
 }
 
@@ -314,6 +319,9 @@ td.rank {
   background-color: white;
   color: black;
   font-size: 2rem;
+  opacity: 0.5;
+  border: 1px solid black;
+  border-radius: 1rem;
 }
 
 /* About */
@@ -386,7 +394,7 @@ td.rank {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0
+    margin: 0;
   }
 }
 
