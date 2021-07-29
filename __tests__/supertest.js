@@ -31,7 +31,7 @@ describe('Route integration', () => {
         .expect(200);
       });
     });
-    describe('/', () => {
+    xdescribe('/', () => {
       it('responds with 200 status and application/json content type', () => {
         return request(server)
         .post('/postQuestionnaire')

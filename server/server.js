@@ -44,10 +44,11 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-
+const host = "0.0.0.0"
+const ports = process.env.PORT || 3000
 createAllTables()
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(ports, host, () => {
       console.log(`Server listening on port: ${PORT}...`);
     });
 });
