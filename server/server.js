@@ -48,7 +48,7 @@ const host = "0.0.0.0"
 const ports = process.env.PORT || 3000
 createAllTables()
   .then(() => {
-    app.listen(ports, () => {
+    app.listen(PORT, () => {
       console.log(`Server listening on port: ${PORT}...`);
     });
 });
