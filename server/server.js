@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 const { createAllTables } = require('./models/index')
-const userRouter = require('./routes/userRouter');
 const scoreRouter = require('./routes/scoreRouter')
 const authRouter = require("./routes/auth.js");
 const logout = require('./routes/logout.js')
@@ -23,7 +22,6 @@ app.set('view engine', 'ejs');
 
 
 app.use('/auth/google', authRouter);
-// app.use('/user',userRouter);
 app.use('/postQuestionnaire',scoreRouter);
 app.use('/logout',logout);
 

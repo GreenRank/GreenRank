@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Home } from "./Home.jsx";
 import { Switch, Route } from "react-router-dom";
 
-export const SignIn = () => {
+const SignIn = () => {
   return (
     <div id="signInContainer">
       <h1 id="title">Green Score</h1>
@@ -12,3 +12,5 @@ export const SignIn = () => {
     </div>
   );
 };
+
+export default SignIn;

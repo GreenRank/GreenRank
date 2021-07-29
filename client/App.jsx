@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Nav } from "./Nav";
-import { SignIn } from "./SignIn";
-import { Profile } from "./Profile";
-import { Questionnaire } from "./Questionnaire.jsx";
-import { About } from "./About.jsx";
-import { Home } from "./Home.jsx";
+import { Nav } from "./components/Nav.jsx";
+import { SignIn } from "./components/SignIn.jsx";
+import { Profile } from "./components/Profile.jsx";
+import { Questionnaire } from "./components/Questionnaire.jsx";
+import { About } from "./components/About.jsx";
+import { Home } from "./components/Home.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router";
 

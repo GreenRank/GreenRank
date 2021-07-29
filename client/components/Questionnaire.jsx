@@ -1,7 +1,7 @@
 // import React from "react";
 import { QuestionCard } from "./QuestionCard";
 import Carousel from "react-elastic-carousel";
-import questions from "./questions.js";
+import questions from "../questions.js";
 import React, { useState } from "react";
 
 const breakPoints = [{ width: 1, itemsToShow: 1 }];
