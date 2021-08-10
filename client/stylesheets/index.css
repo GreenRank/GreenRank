@@ -24,7 +24,6 @@ body {
 /* SignIn */
 
 #signInContainer {
-  margin-top: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,8 +34,8 @@ body {
   color: #9ca74e;
   font-family: 'Architects Daughter', cursive;
   font-size: 7rem;
-  margin: auto;
-  width: 50%;
+  margin: 20rem 0 0 0;
+  /* width: 50%; */
   -webkit-animation:bounce-in-top 2s both;animation:bounce-in-top 2s both;
   display: flex;
   justify-content: center;
