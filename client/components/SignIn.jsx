@@ -9,11 +9,12 @@ export const SignIn = () => {
       <a id="signInButton" href="/auth/google">
         log in with google
       </a>
-      <button id='bypass'>
+      {/* bypass oauth for testing */}
+      {/* <button id='bypass'>
         <Link to="/Home">
           click to go home
         </Link>
-      </button>
+      </button> */}
     </div>
   );
 };
