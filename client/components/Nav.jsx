@@ -12,25 +12,25 @@ export const Nav = () => {
       <h2 id="navTitle">Green Rank</h2>
       <div id="nav-buttons-div">
         <div>
-          <button className="navButtons">
+          {/* <button className="navButtons"> */}
             <Link className="navButtons" to="/Home">
               Home
             </Link>
-          </button>
+          {/* </button> */}
         </div>
         <div>
-          <button className="navButtons">
+          {/* <button className="navButtons"> */}
             <Link to="/Questionnaire" className="navButtons">
               Take the Questionnaire
             </Link>
-          </button>
+          {/* </button> */}
         </div>
         <div>
-          <button className="navButtons">
+          {/* <button className="navButtons"> */}
             <Link className="navButtons" to="/About">
               About
             </Link>
-          </button>
+          {/* </button> */}
         </div>
         <div>
           <button onClick={logout} className="navButtons">

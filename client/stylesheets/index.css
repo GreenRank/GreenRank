@@ -185,6 +185,7 @@ body {
   align-items: center;
 }
 
+
 .navButtons{
   font-family: 'Architects Daughter', cursive;
   font-size: 1.8rem;
@@ -212,7 +213,7 @@ body {
 
 .navButtons:hover {
   transition: .5s ease-in-out;
-  /* background: #868d4f; */
+  background: #868d4f;
   color: #161717;
   text-decoration: underline solid Currentcolor; 
 }
