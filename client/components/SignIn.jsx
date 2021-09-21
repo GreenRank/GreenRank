@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Home } from "./Home.jsx";
-import { Switch, Route } from "react-router-dom";
+// import { Home } from "./Home.jsx";
+import { Link, Switch, Route } from "react-router-dom";
 
 export const SignIn = () => {
   return (
@@ -9,6 +9,12 @@ export const SignIn = () => {
       <a id="signInButton" href="/auth/google">
         log in with google
       </a>
+      {/* bypass oauth for testing */}
+      {/* <button id='bypass'>
+        <Link to="/Home">
+          click to go home
+        </Link>
+      </button> */}
     </div>
   );
 };

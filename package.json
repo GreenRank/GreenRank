@@ -30,7 +30,6 @@
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
-    "enzyme-adapter-react-16": "^1.15.6",
     "express": "^4.12.3",
     "express-session": "^1.17.2",
     "jest-canvas-mock": "^2.3.1",

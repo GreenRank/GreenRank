@@ -1,12 +1,13 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import 'jest-enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+// import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import 'jest-canvas-mock';
 import fetch from 'node-fetch';
 import toJson from 'enzyme-to-json';
 
-import SignIn from '../client/components/SignIn';
+import { SignIn } from '../client/components/SignIn';
 import { Home } from '../client/components/Home';
 import { NavLink } from 'react-router-dom'; 
 import { Rankings } from '../client/components/Rankings';
@@ -31,7 +32,7 @@ describe('check if the Login has everything', () => {
     expect(wrapper.find('h1')).toExist()
   })
   it('has the correct inner text',()=>{
-    expect(wrapper.find('h1').text()).toBe('Green Score')
+    expect(wrapper.find('h1').text()).toBe('Green Rank')
     expect(wrapper.find('a').text()).toBe('log in with google')
   })
 })
@@ -106,5 +107,5 @@ describe('check if About has everything',()=>{
       expect(wrapper).toMatchElement(<Profile />);
       expect(wrapper)
     });
-    it('')
+    // it('')
   });
